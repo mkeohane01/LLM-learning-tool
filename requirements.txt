@@ -5,3 +5,4 @@ ruff
 flask
 flask-cors
 python-dotenv
+openai

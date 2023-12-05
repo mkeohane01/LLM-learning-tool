@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template, request
+from app.utils import prompt_llm
 
 
 @app.route('/')
@@ -14,12 +15,10 @@ def submit_prompt():
     task = request.form.get('task')
     constraints = request.form.get('constraints')
 
-    # Process the data as needed for your application
+    # Query GPT
+    prompt, response = prompt_llm(role, context, style, task, constraints)
 
     return render_template('results.html', result={
-        'role': role,
-        'context': context,
-        'style': style,
-        'task': task,
-        'constraints': constraints
+        'prompt': prompt,
+        'response': response
     })
