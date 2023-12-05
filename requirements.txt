@@ -1,3 +1,7 @@
 black
 pytest
 ruff
+
+flask
+flask-cors
+python-dotenv

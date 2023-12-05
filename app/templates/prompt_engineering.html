@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prompt Engineering Tool</title>
+    <!-- Add CSS and JavaScript here -->
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: center;
+        }
+        .flex-container p {
+            margin-left: 10px;
+        }
+        .flex-container label {
+        font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Prompt Engineering Sandbox</h1>
+    <form action="/results" method="post">
+
+        <div class="flex-container">
+            <label for="role">Role:</label>
+            <p>Define the AI's role (e.g., assistant, advisor). Think about the persona the AI should assume.</p>
+        </div>
+        <textarea id="role" name="role" rows="3" cols="80" placeholder="As an expert in AI and natural language processing"></textarea>
+
+        <div class="flex-container">
+            <label for="context">Context:</label>
+            <p>Provide essential background information that's relevant to the task. (e.g. consider this specific info)</p>
+        </div>
+        <textarea id="context" name="context" rows="3" cols="80" placeholder="Consider that I am a student learning about prompt engineering. I have basic knowledge of AI, but I want to enhance my skills at crafting effective prompts"></textarea>
+
+        <div class="flex-container">
+            <label for="style">Style:</label>
+            <p>Choose the tone and style of the AI's response (e.g., formal, friendly).</p>
+        </div>
+        <textarea id="style" name="style" rows="3" cols="80" placeholder="Please provide detailed, practical advice in an easy-to-understand and engaging manner. Incorporate examples where possible to illustrate key points."></textarea>
+        
+        <div class="flex-container">
+            <label for="task">Task:</label>
+            <p>Clearly specify what you want to achieve with this prompt. (this is the place for the question)</p>
+        </div>
+        <textarea id="task" name="task" rows="3" cols="80" placeholder="I am seeking guidance on how to improve my prompt engineering skills. This should include best practices, common pitfalls to avoid, and strategies for formulating prompts that yield precise and relevant responses from LLMs."></textarea>
+        
+        <div class="flex-container">
+            <label for="constraints">Constraints:</label>
+            <p>Describe any limitations or boundaries for the task (e.g., word count, topic restrictions).</p>
+        </div>
+        <textarea id="constraints" name="constraints" rows="3" cols="80" placeholder="The information should be comprehensive yet concise, ideally structured in a step-by-step format for easy learning and application"></textarea>
+        
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var textareas = Array.from(this.elements).filter(function(element) {
+                return element.tagName.toLowerCase() === 'textarea';
+            });
+            if (textareas.every(function(textarea) { return !textarea.value; })) {
+                textareas.forEach(function(textarea) {
+                    textarea.value = textarea.placeholder;
+                });
+            }
+            this.submit();
+        });
+    </script>
+</body>
+</html>
