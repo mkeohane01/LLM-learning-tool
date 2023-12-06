@@ -10,3 +10,6 @@ format:
 
 test:
 	pytest -vv
+
+run:
+	flask run
