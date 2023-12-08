@@ -2,6 +2,8 @@
 
 [![Continuous Integration](https://github.com/mkeohane01/LLM-learning-tool/actions/workflows/main.yml/badge.svg)](https://github.com/mkeohane01/LLM-learning-tool/actions/workflows/main.yml)
 
+Here is the [video link](https://youtu.be/q4MmATmijz8) of my project run down.
+
 ## Prompt Engineering Sandbox for LLM Education
 
 This project contains a cloud-hosted application to study Large Language Models by breaking up prompt engineering in to 5 parts. In this app, users construct their prompt with: Role, Context, Style, Task, and Constraints clearly listed with an example for each.
